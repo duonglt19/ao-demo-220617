@@ -6,7 +6,7 @@ on:
       - dev
 jobs:                         
   first-job:                           
-    name: Say hi                           
+    name: testing                          
     runs-on: window-latest                           
     steps:
     - uses: actions/checkout@main
