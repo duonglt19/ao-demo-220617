@@ -1,10 +1,24 @@
 # your-repo-name/.github/workflows/first_workflow.yml
-name: First Workflow                                               
-on: push                                                  
+name: Test with pytest                                    
+on: 
+  push:
+    branches:
+      - dev
 jobs:                         
   first-job:                           
     name: Say hi                           
-    runs-on: ubuntu-latest                           
-    steps:                           
-    - name: Print a greeting                             
-      run: echo Hi from our first workflow!
+    runs-on: window-latest                           
+    steps:
+    - uses: actions/checkout@main
+    - name: Set up Python 3.8
+      uses: actions/setup-python@main
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Test with pytest
+      run: |
+        if [ -d tests ] || [ -d test ]; then python -m pytest; fi
