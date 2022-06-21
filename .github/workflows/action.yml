@@ -1,4 +1,4 @@
-# your-repo-name/.github/workflows/first_workflow.yml
+# your-repo-name/.github/workflows/your_workflow.yml
 name: Test with pytest                                    
 on: 
   push:
